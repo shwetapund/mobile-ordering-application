@@ -27,4 +27,15 @@ const mobilePostApi = async (req,res)=>{
     }
 }
 
-export {mobilePostApi}
+const mobileGetApi = async (req,res)=>{
+
+const fetchmobilepost = await Mobile.find();
+
+res.json({
+    success:true,
+    data:fetchmobilepost,
+    message:"successfully fetch mobiles"
+})
+}
+
+export {mobilePostApi, mobileGetApi}

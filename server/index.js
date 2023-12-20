@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv, { config } from 'dotenv';
 dotenv.config();
-import {mobilePostApi} from './controllers/MobileController.js'
+import {mobilePostApi, mobileGetApi} from './controllers/MobileController.js'
 
 const app = express();
 app.use(express.json());
@@ -17,7 +17,11 @@ const connectMongoDB = async (req,res)=>{
 }
 connectMongoDB();
 
+
 app.post('/api/v1/mobiles',mobilePostApi)
+
+app.get('/api/v1/mobiles',mobileGetApi)
+
 
 app.listen(PORT, (req,res)=>{
     console.log(`server is running on ${PORT}`);
