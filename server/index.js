@@ -3,7 +3,8 @@ import mongoose from "mongoose";
 import dotenv, { config } from 'dotenv';
 dotenv.config();
 import {mobilePostApi, mobileGetApi, mobileGetApibyId} from './controllers/MobileController.js';
-import {mobileOrderApi} from "./controllers/OrderController.js";
+// import {mobileOrderApi} from "./controllers/OrderController.js";
+import {signUpPostApi} from "./controllers/UserController.js";
 
 const app = express();
 app.use(express.json());
@@ -25,8 +26,11 @@ app.get('/api/v1/mobiles',mobileGetApi)
 
 app.get('/api/v1/mobile/:_id',mobileGetApibyId)
 
-app.post('api/v1/orders',mobileOrderApi)
+// app.post('api/v1/orders',mobileOrderApi)
+
+app.post('/api/v1/signup',signUpPostApi)
 
 app.listen(PORT, (req,res)=>{
     console.log(`server is running on ${PORT}`);
 })
+

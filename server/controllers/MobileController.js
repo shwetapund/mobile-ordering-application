@@ -49,6 +49,6 @@ res.json({
 })
 }
 
-const 
 
-export {mobilePostApi, mobileGetApi, mobileGetApibyId, mobileOrderApi}
+
+export {mobilePostApi, mobileGetApi, mobileGetApibyId}
