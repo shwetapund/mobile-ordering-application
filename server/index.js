@@ -16,6 +16,8 @@ const connectMongoDB = async (req,res)=>{
 }
 connectMongoDB();
 
+
+
 app.listen(PORT, (req,res)=>{
     console.log(`server is running on ${PORT}`);
 })
