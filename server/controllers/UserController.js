@@ -28,4 +28,26 @@ const signUpPostApi = async (req,res)=>{
     }
 }
 
-export {signUpPostApi}
+const loginPostApi = async (req,res)=>{
+    const {email,password} = req.body;
+
+    const loginUser = await User.findOne({
+        email:email,
+        password:password
+    }).select('name email mobileNo address gender')
+
+    if(!loginUser){
+        res.json({
+            success:true,
+            message:"invalid credential"
+        })
+    }
+
+    res.json({
+        success:true,
+        data:loginUser,
+        message:"successfully login"
+    })
+}
+
+export {signUpPostApi, loginPostApi}
