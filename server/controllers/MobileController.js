@@ -38,4 +38,15 @@ res.json({
 })
 }
 
-export {mobilePostApi, mobileGetApi}
+const mobileGetApibyId = async (req,res)=>{
+const {_id} = req.params;
+const findMobilebyId = await Mobile.findOne({_id:_id})
+
+res.json({
+    success:true,
+    data:findMobilebyId,
+    message:"successfully fetch mobole by id"
+})
+}
+
+export {mobilePostApi, mobileGetApi, mobileGetApibyId}
