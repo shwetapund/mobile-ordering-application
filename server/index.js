@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import dotenv, { config } from 'dotenv';
 dotenv.config();
 import {mobilePostApi, mobileGetApi, mobileGetApibyId} from './controllers/MobileController.js';
-import {orderApi} from "./controllers/OrderController.js";
+import {orderApi, searchOrder} from "./controllers/OrderController.js";
 import {signUpPostApi, loginPostApi} from "./controllers/UserController.js";
 
 const app = express();
@@ -19,7 +19,6 @@ const connectMongoDB = async (req,res)=>{
 }
 connectMongoDB();
 
-
 app.post('/api/v1/mobiles',mobilePostApi)
 
 app.get('/api/v1/mobiles',mobileGetApi)
@@ -31,6 +30,8 @@ app.post('/api/v1/signup',signUpPostApi)
 app.post('/api/v1/login',loginPostApi)
 
 app.post('/api/v1/orders',orderApi)
+
+app.get('/api/v1/searchOrders',searchOrder)
 
 app.listen(PORT, (req,res)=>{
     console.log(`server is running on ${PORT}`);

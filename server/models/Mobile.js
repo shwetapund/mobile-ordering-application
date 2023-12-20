@@ -7,7 +7,7 @@ const mobileSchema = new Schema({
         required:true
     },
     price:{
-        type:Number,
+        type:String,
         required:true
     },
     type:{
