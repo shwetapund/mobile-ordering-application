@@ -29,6 +29,9 @@ const mobileSchema = new Schema({
     OS:{
         type:String,
         required:true
+    },
+    description:{
+        type:String
     }
 },
 {

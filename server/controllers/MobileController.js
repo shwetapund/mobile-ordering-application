@@ -1,7 +1,7 @@
 import Mobile from './../models/Mobile.js';
 
 const mobilePostApi = async (req,res)=>{
-    const {price, name, type, processor, memory, OS, image} = req.body;
+    const {price, name, type, processor, memory, OS, image, description} = req.body;
 
     try{
         const mobileObj = new Mobile({
@@ -11,7 +11,8 @@ const mobilePostApi = async (req,res)=>{
             processor, 
             memory, 
             OS, 
-            image
+            image,
+            description
         })
         const savedMobile = await mobileObj.save();
         res.json({
