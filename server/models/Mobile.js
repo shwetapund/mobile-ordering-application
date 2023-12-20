@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 
 const mobileSchema = new Schema({
-    //price, name, type, processor, memory, OS
+    //price, name, type, processor, memory, OS, image
     name:{
         type:String,
         required:true
@@ -23,6 +23,10 @@ const mobileSchema = new Schema({
         required:true
     },
     image:{
+        type:String,
+        required:true
+    },
+    OS:{
         type:String,
         required:true
     }
