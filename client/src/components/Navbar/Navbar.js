@@ -2,7 +2,6 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
-
 const navigation = [
   { name: 'Mobile Shoppy', href: '/', current: true },
   { name: 'Login ', href: '/login', current: false },
