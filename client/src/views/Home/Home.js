@@ -28,7 +28,7 @@ function Home() {
           const {_id,  price, name,type, processor, memory, OS,image} = mobile;
 
           return<Mobiles 
-
+          
           image={image}
           key={i}
           price={price}
@@ -37,6 +37,7 @@ function Home() {
           processor={processor}
           memory={memory}
           OS={OS}
+          _id={_id}
          
           />
         }

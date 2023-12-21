@@ -12,8 +12,8 @@ function Mobiles({_id,  price, name,type, processor, memory, OS,image}) {
       <h4 className='text-lg text-red-500 font-bold ms-4'>Rs. ₹ {price} </h4>
       {/* <p className='prard-discr'>{processor}</p> */}
       <p className='text-lg text-zinc-950 ms-4 h-20'>{memory} </p>
-
-    <button className='mt-2 h-18 px-3 py-2 rounded-lg text-white font-bold bg-red-600 border-solid block mx-auto'>Buy Now</button>
+      
+      <Link to={`/buy/${_id}`}><button className='mt-2 h-18 px-3 py-2 rounded-lg text-white font-bold bg-red-600 border-solid block mx-auto'>View More..</button></Link>
     </div>
   )
 }
