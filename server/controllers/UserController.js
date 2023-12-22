@@ -37,8 +37,7 @@ const loginPostApi = async (req,res)=>{
     }).select('name email mobileNo address gender')
 
     if(!loginUser){
-        res.json({
-            success:true,
+        return res.json({
             message:"invalid credential"
         })
     }

@@ -46,10 +46,6 @@ function BuyNow() {
     
     const response = await axios.post('/api/v1/orders',orderDetails);
     alert(response?.data?.message);
-    // if(response?.data?.success){
-    //   window.location.href = '/myorders'
-    // }
-
   }
 
   return (

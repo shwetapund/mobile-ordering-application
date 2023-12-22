@@ -33,7 +33,7 @@ app.post('/api/v1/orders',orderApi)
 
 app.get('/api/v1/searchOrders',searchOrder)
 
-app.get('/api/v1/user/ordering/:id', fetchUserOrders)
+app.get('/api/v1/orders/user/:_id', fetchUserOrders)
 
 app.listen(PORT, (req,res)=>{
     console.log(`server is running on ${PORT}`);

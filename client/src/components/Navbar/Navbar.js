@@ -6,7 +6,7 @@ const navigation = [
   { name: 'Mobile Shoppy', href: '/', current:false  },
   { name: 'Login ', href: '/login', current: false },
   { name: 'Signup', href: '/signup', current: false },
-  { name: 'My Orders', href: '/myorders', current: false },
+ 
 ]
 
 function classNames(...classes) {

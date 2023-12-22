@@ -50,10 +50,10 @@ const searchOrder = async (req, res) => {
 }
 
 const fetchUserOrders = async (req,res)=>{
-    try{
-        const { id } = req.params
-
-    const findOrders = await Order.find({ user: { _id: id } }).populate('user Mobile')
+    
+        const { _id } = req.params
+        try{
+    const findOrders = await Order.find({ user: { _id: _id } }).populate('user mobile')
     res.json({
         success:true,
         data:findOrders,

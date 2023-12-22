@@ -71,11 +71,11 @@ function SignUp() {
 
       <form className='form-conatainer'>
 
-        <h1 className='text-center title'>SignUp</h1>
+        <h1 className='text-center title text-2xl font-bold'>Mobile Shoppy</h1>
         <div className='form-sub-container'>
           <div>
             <div>
-              <label htmlFor='name'  >Name : </label>
+              <label htmlFor='name' className="ms-8">Name : </label>
               <input
                 type='text'
                 id='name'
@@ -89,7 +89,7 @@ function SignUp() {
             </div>
 
             <div>
-              <label htmlFor='mobile'>Mobile : </label>
+              <label htmlFor='mobile' className="ms-8">Mobile : </label>
               <input
                 type='text'
                 id='mobile'
@@ -103,7 +103,7 @@ function SignUp() {
             </div>
 
             <div>
-              <label htmlFor='email'>Email : </label>
+              <label htmlFor='email' className="ms-8">Email : </label>
               <input
                 type='email'
                 id='email'
@@ -119,7 +119,7 @@ function SignUp() {
 
           <div>
             <div>
-              <label htmlFor='password'>Password : </label>
+              <label htmlFor='password' className="ms-8">Password : </label>
               <input
                 type='text'
                 id='password'
@@ -133,7 +133,7 @@ function SignUp() {
             </div>
 
             <div>
-              <label htmlFor='address'>Address : </label>
+              <label htmlFor='address' className="ms-8">Address : </label>
               <input
                 type='text'
                 id='address'
@@ -147,18 +147,18 @@ function SignUp() {
             </div>
 
             <div>
-              <label>Gender: </label><br/><br/>
+              <label className="ms-8">Gender: </label><br/><br/>
               <input
                 type='radio'
                 id='male'
                 name='gender'
-                className='gender'
+                className='gender '
                 checked={gender === "male"}
                 onClick={() => {
-                  setGender('male')
+                setGender('male')
                 }}
               />
-              <label htmlFor='male'> Male</label>
+              <label htmlFor='male' className="ms-2"> Male</label>
 
               <input
                 type='radio'
@@ -170,7 +170,7 @@ function SignUp() {
                   setGender('female')
                 }}
               />
-              <label htmlFor='female'> Female</label>
+              <label htmlFor='female' className="ms-2"> Female</label>
             </div>
 
           
@@ -179,9 +179,10 @@ function SignUp() {
         </div>
         <button type="button" className='btn signup-btn'
               onClick={signup}>sign up</button>
-
+          
             <p className='text-center'>
-              <Link to="/login">You have already account ?</Link></p>
+            You have already account ?
+              <Link to="/login" className='link-text'>Login</Link></p>
       </form>
 
     </div>
