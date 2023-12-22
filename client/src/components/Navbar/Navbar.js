@@ -1,9 +1,9 @@
-import { Fragment } from 'react'
+import { Fragment, useState, useEffect} from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-  { name: 'Mobile Shoppy', href: '/', current: true },
+  { name: 'Mobile Shoppy', href: '/', current:false  },
   { name: 'Login ', href: '/login', current: false },
   { name: 'Signup', href: '/signup', current: false },
   { name: 'My Orders', href: '/myorders', current: false },
@@ -14,8 +14,15 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+  const [user,setUser] = useState({});
+
+  useEffect(()=>{
+      const userStorage = JSON.parse(localStorage.getItem('user') || '{}');
+      setUser(userStorage);
+  },[])
+  
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className="bg-black shadow-xl">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -36,7 +43,7 @@ export default function Navbar() {
                 <div className="flex flex-shrink-0 items-center">
                   <img
                     className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                    src="https://cdn-icons-png.flaticon.com/128/1055/1055668.png"
                     alt="Your Company"
                   />
                 </div>
@@ -47,8 +54,8 @@ export default function Navbar() {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'rounded-md px-3 py-2 text-sm font-medium'
+                          item.current ? 'bg-gray-900 text-white' : 'text-white hover:bg-gray-700 hover:text-white',
+                          'rounded-md px-3 py-2 text-base'
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
@@ -59,14 +66,7 @@ export default function Navbar() {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
-                  type="button"
-                  className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                >
-                  <span className="absolute -inset-1.5" />
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
+         
 
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
@@ -75,8 +75,8 @@ export default function Navbar() {
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
                       <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        className="h-8 w-8 rounded-full bg-white"
+                        src="https://cdn-icons-png.flaticon.com/128/64/64572.png"
                         alt=""
                       />
                     </Menu.Button>
@@ -120,6 +120,16 @@ export default function Navbar() {
                             Sign out
                           </a>
                         )}
+                      </Menu.Item>
+                      <Menu.Item>
+                      <div className='logout fw-bold color'>
+                            Hello🖐,{user.name || "User!"}
+                            {user?.name ?
+                            (<span className='logout-img'
+                                onClick={()=>{localStorage.removeItem('user'); window.location.href='/login'}}> Logout </span>)
+                                :
+                                null}
+                        </div>
                       </Menu.Item>
                     </Menu.Items>
                   </Transition>

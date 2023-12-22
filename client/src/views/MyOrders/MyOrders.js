@@ -32,12 +32,12 @@ function MyOrders() {
     const storageUse = JSON.parse(localStorage.getItem("user") || '{}');
     const userID = storageUse._id;
 
-    if (!userID) {
-      return;
-    }
+    // if (!userID) {
+    //   return;
+    // }
 
     try {
-      const response = await axios.get(`/order/user/${userID}`);
+      const response = await axios.get(`/api/v1/user/ordering/${userID}`);
 
       setOrder(response?.data?.data);
 
@@ -48,7 +48,7 @@ function MyOrders() {
   }
   useEffect(() => {
     loadOrder();
-  }, [user])
+  }, [])
 
   return (
     <div>

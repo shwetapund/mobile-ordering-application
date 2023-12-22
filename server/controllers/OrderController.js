@@ -49,5 +49,22 @@ const searchOrder = async (req, res) => {
    }
 }
 
+const fetchUserOrders = async (req,res)=>{
+    try{
+        const { id } = req.params
 
-export { orderApi, searchOrder }
+    const findOrders = await Order.find({ user: { _id: id } }).populate('user Mobile')
+    res.json({
+        success:true,
+        data:findOrders,
+        message:" Mobiles fetch successfully..!"  
+      })
+    }catch(err){
+        res.status(404).json({
+            success:false,
+            err:err.message
+        })
+    }
+}
+
+export { orderApi, searchOrder, fetchUserOrders}

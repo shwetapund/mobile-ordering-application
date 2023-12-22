@@ -9,22 +9,28 @@ function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     
-    const login = async()=>{
+    const login = async () => {
+      try{
         const response = await axios.post('/api/v1/login',{
-            email:email,
-            password:password
-        })
-    
-        alert(response?.data?.message);
-    
-        if(response?.data?.success){
-            localStorage.setItem('user',JSON.stringify(response?.data?.data))
-            window.location.href="/"
-        }
+          email:email,
+          password:password
+      })
+  
+      alert(response?.data?.message);
+  
+      if(response?.data?.success){
+          localStorage.setItem('user',JSON.stringify(response?.data?.data))
+          window.location.href="/"
+      }
+      } catch (err) {
+        console.log(err.message)
     }
+    }
+   
     useEffect(()=>{
         const userstorageData = JSON.parse(localStorage.getItem('user') || '{}');
-        
+        console.log(userstorageData);
+          
         if(userstorageData?.email){
             alert("You are already logged in!");
             window.location.href= '/';
