@@ -5,6 +5,7 @@ dotenv.config();
 import {mobilePostApi, mobileGetApi, mobileGetApibyId} from './controllers/MobileController.js';
 import {orderApi, searchOrder, fetchUserOrders} from "./controllers/OrderController.js";
 import {signUpPostApi, loginPostApi} from "./controllers/UserController.js";
+import path from 'path';
 
 const app = express();
 app.use(express.json());
@@ -34,6 +35,16 @@ app.post('/api/v1/orders',orderApi)
 app.get('/api/v1/searchOrders',searchOrder)
 
 app.get('/api/v1/orders/user/:_id', fetchUserOrders)
+
+const __dirname = path.resolve();
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
+  });
+}
 
 app.listen(PORT, (req,res)=>{
     console.log(`server is running on ${PORT}`);
