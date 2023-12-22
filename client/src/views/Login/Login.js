@@ -27,16 +27,7 @@ function Login() {
     }
   }
 
-  // useEffect(()=>{
-  //     const userstorageData = JSON.parse(localStorage.getItem('user') || '{}');
-  //     console.log(userStorage);
 
-  //     if(userstorageData?.email){
-  //         alert("You are already logged in!");
-  //         window.location.href= '/';
-  //     }
-
-  // },[])
 
   return (
     <>

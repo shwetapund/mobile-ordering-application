@@ -4,6 +4,7 @@ import Mobiles from "../../components/Mobile/Mobile";
 import axios from 'axios'
 import './Home.css';
 
+
 function Home() {
   const [mobiles, setMobiles] = useState([])
   const [search, setSearch] = useState('')
@@ -69,6 +70,7 @@ function Home() {
       }
       </div>
       </div>
+
   </>
   )
   }
